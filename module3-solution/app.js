@@ -2,9 +2,9 @@
     function(){
     'use strict';
 
-    angular.module('myApp',[])
-    .controller('myAppCtrl',myAppCtrl)
-    .service('myAppService',myAppService)
+    angular.module('NarrowItDownApp',[])
+    .controller('NarrowItDownController',NarrowItDownController)
+    .service('MenuSearchService',MenuSearchService)
     .constant('ApiBasePath',"https://davids-restaurant.herokuapp.com")
     .component('foundItems',{
         templateUrl:'itemsList.html',
@@ -19,7 +19,7 @@
     function myAppComponentCtrl($scope, $element) {
     var $ctrl = this;
 
-    $ctrl.eliminarItemNv=function(index){
+    $ctrl.removeItem=function(index){
         console.log(index);
         $ctrl.foundItems.splice(index,1);
     }
@@ -28,8 +28,8 @@
 
 
    
-    myAppCtrl.$inject=['myAppService','$filter','$scope'];
-    function myAppCtrl(myAppService,$filter,$scope){
+    NarrowItDownController.$inject=['MenuSearchService','$filter','$scope'];
+    function NarrowItDownController(MenuSearchService,$filter,$scope){
         var ctrl=this;
         //const listadoAux=[];
         ctrl.onremove=function(index){
@@ -37,22 +37,22 @@
             ctrl.listadoMenu.splice(index,1);
         }
 
-        ctrl.obtenerListadoMenu=function(pDescription){
+        ctrl.getMatchedMenuItems=function(pDescription){
             console.log(pDescription);
-            var myAppServicePromesa = myAppService.getListadoMenu();
+            var MenuSearchServicePromesa = MenuSearchService.getMatchedMenuItems();
 
-            myAppServicePromesa.then(function(response){
+            MenuSearchServicePromesa.then(function(response){
 
                 console.log('antes del filtrado');
 
                 $scope.msjResultado="";
-                ctrl.listadoMenu =$filter('filter')( response.data.menu_items,pDescription);
-                console.log(ctrl.listadoMenu);
-                ctrl.items=ctrl.listadoMenu;
+                ctrl.items =$filter('filter')( response.data.menu_items,pDescription);
+                // console.log(ctrl.listadoMenu);
+                // ctrl.items=ctrl.listadoMenu;
 
-                console.log('despues del filtrado');
-                console.log(ctrl.listadoMenu.length);
-                if (ctrl.listadoMenu.length==0)
+                // console.log('despues del filtrado');
+                // console.log(ctrl.listadoMenu.length);
+                if (ctrl.items.length==0)
                 {
                     $scope.msjResultado="Nothing found";   
                 }
@@ -64,11 +64,11 @@
 
     }
 
-    myAppService.$inject=['$http','ApiBasePath'];
-    function myAppService($http,ApiBasePath){
+    MenuSearchService.$inject=['$http','ApiBasePath'];
+    function MenuSearchService($http,ApiBasePath){
         var service=this;
 
-        service.getListadoMenu=function(){
+        service.getMatchedMenuItems=function(){
             var response = $http({
                 method:"GET",
                 url:(ApiBasePath + "/menu_items.json") //,
