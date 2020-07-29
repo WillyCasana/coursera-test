@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "module3-solution"
+		},
+		{
+			"path": "module3-practica"
+		},
+		{
+			"path": "watch-practice"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "module3-solution"
+	}
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+<body ng-controller="myAppCtrl as ctrl">
+   <div class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input ng-model="pDescription" type="text" placeholder="search term" class="form-control">
+    </div>
+    <div class="form-group narrow-button">
+      <button ng-click="ctrl.obtenerListadoMenu(pDescription)" class="btn btn-primary">Narrow It Down For Me!</button>
+      {{msjResultado}}
+    </div>
+    <!-- <table class="table table-stripped">
+      <thead>
+        <th>Name</th>
+        <th>Short_Name</th>
+        <th>Description</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="fil in ctrl.listadoMenu">
+          <td>{{fil.name}}</td>
+          <td>{{fil.short_name}}</td>
+          <td>{{fil.description}}</td>
+          <td> <button ng-click="ctrl.eliminarItem($index)" class="btn btn-primary">Don't want this one!</button> </td>
+        </tr>
+      </tbody>
+    </table> -->
+
+    <!-- found-items should be implemented as a component -->
+    <!-- <found-items found-items="ctrl.items" on-remove="ctrl.eliminarItem($index)"></found-items> -->
+    <found-items found-items="ctrl.items"></found-items>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
