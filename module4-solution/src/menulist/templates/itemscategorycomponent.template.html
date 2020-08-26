@@ -1,0 +1,16 @@
+<table class="table table-stripped">
+  <thead>
+    <th>Name</th>
+    <th>Short Name</th>
+    <!-- <th>Description</th> -->
+    <th>Price Large</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="fil in $ctrl.itemsxcat.menu_items">
+      <td>{{fil.name}}</td>
+      <td>{{fil.short_name}}</td>
+      <!-- <td>{{fil.description}}</td> -->
+      <td>{{fil.price_large}}</td>
+    </tr>
+  </tbody>
+</table>

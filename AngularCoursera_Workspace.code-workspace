@@ -8,9 +8,12 @@
 		},
 		{
 			"path": "watch-practice"
+		},
+		{
+			"path": "module4-solution"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "module3-solution"
+		"liveServer.settings.multiRootWorkspaceName": "module4-solution"
 	}
 }
