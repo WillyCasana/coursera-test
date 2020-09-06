@@ -1,0 +1,49 @@
+<form>
+    <fieldset>
+        <!-- <h1>Acá se mostrará la info guardada</h1> -->
+        <div ng-show=verUser>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>First Name: </label>
+                    <label>{{firstName}}</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Last Name: </label>
+                    <label>{{lastName}}</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Email: </label>
+                    <label>{{email}}</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Phone: </label>
+                    <label>{{phone}}</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+              
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{menuRuta}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">{{menu.name}}</h3>
+                          <p class="card-text">{{menu.description}}</p>
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="verUserMensaje">
+            {{usermensaje}} <a  href="index.html#/signup">Sign up Now!</a>
+        </div>
+    
+
+    </fieldset>
+</form>

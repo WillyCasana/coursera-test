@@ -11,9 +11,13 @@
 		},
 		{
 			"path": "module4-solution"
+		},
+		{
+			"path": "module5-solution"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "module4-solution"
+		"liveServer.settings.multiRootWorkspaceName": "module5-solution",
+		"liveServer.settings.port": 5501
 	}
 }
