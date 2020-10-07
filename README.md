@@ -1,2 +1,2 @@
 # coursera-test
-Test Coursera repo
+Test Coursera repo del curso de Angular.js
